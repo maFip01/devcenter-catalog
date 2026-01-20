@@ -1,6 +1,6 @@
 $schema: 1.0
 name: project-sample-1
-image: MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
+image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
 tasks:
 - name: ~/powershell
   description: "Configure PowerShell environment and install DSC resources"
