@@ -1,0 +1,35 @@
+$schema: 1.0
+name: project-sample-1
+image: MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365
+tasks:
+- name: ~/powershell
+  description: "Configure PowerShell environment and install DSC resources"
+  parameters:
+    command: |
+      Set-ExecutionPolicy -ExecutionPolicy Bypass -Force -Scope Process
+      Install-PackageProvider -Name NuGet -Force -Scope AllUsers
+      Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+      Install-Module -Name PSDSCResources -Force -AllowClobber -Scope AllUsers
+
+- name: ~/winget
+  description: "Import common engineering tools and configurations"
+  parameters:
+    downloadUrl: "https://raw.githubusercontent.com/Evilazaro/DevExp-DevBox/refs/heads/main/.configuration/devcenter/workloads/common-config.dsc.yaml"
+    configurationFile: "c:\\winget\\common-config.dsc.yaml"    
+
+- name: ~/winget
+  description: "Install GitHub Desktop for visual Git management"
+  parameters:
+    package: "GitHub.GitHubDesktop"
+
+- name: ~/git-clone
+  description: "Clone the Identity Provider repository to the local workspace"
+  parameters:
+    repositoryUrl: https://github.com/Evilazaro/IdentityProvider.git
+    directory: Z:\Workspaces
+
+- name: ~/winget
+  description: "Install specialized backend development tools"
+  parameters:
+    downloadUrl: "https://raw.githubusercontent.com/Evilazaro/DevExp-DevBox/refs/heads/main/.configuration/devcenter/workloads/common-backend-config.dsc.yaml"
+    configurationFile: "c:\\winget\\common-backend-config.dsc.yaml"
