@@ -1,0 +1,16 @@
+name: Sandbox_PoC
+summary: This is an sandbox deployment for a PoC using Bicep.
+description: Deploys an Sandbox Config.
+templatePath: sandboxconfig.bicep
+parameters:
+- id: "name"
+  name: "name"
+  description: "Name of the Sandbox Config"
+  type: "string"
+  required: true
+- id: "location"
+  name: "location"
+  description: "Location to deploy the environment resources"
+  default: "northeurope"
+  type: "string"
+runner: Bicep
