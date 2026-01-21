@@ -3,9 +3,9 @@ summary: This is an sandbox deployment for a PoC using Bicep.
 description: Deploys an Sandbox Config.
 templatePath: sandboxconfig.bicep
 parameters:
-- id: "name"
-  name: "name"
-  description: "Name of the Sandbox Config"
+- id: "resourceGroupName"
+  name: "resourceGroupName"
+  description: "Name of the Sandbox resource group"
   type: "string"
   required: true
 - id: "location"
